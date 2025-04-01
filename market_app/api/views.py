@@ -13,8 +13,8 @@ class ManufacturerList(generics.ListCreateAPIView):
 
 class ManufacturerDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Manufacturer.objects.all()
-    permission_classes = [IsAdminForManufacturerDetailAccess]
     serializer_class = ManufacturerSerializer
+    permission_classes = [IsAdminForManufacturerDetailAccess]
 
 
 class ProductList(generics.ListCreateAPIView):
