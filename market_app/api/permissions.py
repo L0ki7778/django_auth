@@ -19,6 +19,7 @@ class IsAdminForManufacturerDetailAccess(BasePermission):
 class IsOwnerOrAdminForDetailAccess(BasePermission):
 
     def has_object_permission(self,request,user,obj):
+        # user muss im obj vorhanden sein, um user-permissions zu erstellen
         if request.user == obj.user:
            return bool(request.method != 'DELETE')
         if request.method == 'DELETE':

@@ -8,10 +8,11 @@ class ManufacturerSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'description', 'net_worth']
 
 class ManufacturerUserSerializer(serializers.ModelSerializer):
+    user_name = serializers.PrimaryKeyRelatedField(source='user.username', read_only=True)
     class Meta:
         model = ManufacturerUser
-        fields = ['manufacturer', 'user', 'role', 'joined_date']
-        
+        fields = ['manufacturer', 'user_name', 'role', 'joined_date']
+
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
